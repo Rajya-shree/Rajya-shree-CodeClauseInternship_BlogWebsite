@@ -1,0 +1,116 @@
+.blog-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: #1e1e1e; /* dark background */
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+  color: white;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+/* Content area */
+.blog-card .content {
+  flex: 1 1 60%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+/* Image container positioning */
+.blog-card .image-container {
+  position: relative;
+  flex: 0 0 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 3;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Blog image */
+.blog-card .blog-image {
+  width: 100%; 
+  height: auto; 
+  border-radius: 12px;
+  object-fit: cover; 
+  user-select: none;
+  transition: transform 0.5s ease, width 0.4s ease;
+  transform: translateX(0); 
+}
+
+/* Hover state - expand image to cover entire card
+.blog-card.hovered .image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex: none;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 230, 100, 0.5);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Hovered image expand */
+/* .blog-card.hovered .blog-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  transform: translateX(0);
+  filter: brightness(0.85);
+  pointer-events: auto;
+} */
+
+/* Blur and fade content on hover */
+/* .blog-card.hovered .content {
+  filter: blur(6px);
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
+}  */
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 600px) {
+  .blog-card {
+    flex-direction: column;
+  }
+  .blog-card .image-container {
+    width: 100%;
+    flex: none;
+    margin-top: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+  .blog-card .blog-image {
+    width: 100%;
+    height: auto;
+    transform: translateX(0);
+  }
+  /* On small screens hover expands image normally */
+  .blog-card.hovered .image-container {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    box-shadow: 0 0 15px rgba(255 230 100, 0.7);
+    z-index: 3;
+  }
+  .blog-card.hovered .content {
+    filter: none;
+    opacity: 1;
+    pointer-events: auto;
+    user-select: auto;
+  }
+}
+
+/* Additional styles for category, meta, actions remain unchanged from your existing code */
